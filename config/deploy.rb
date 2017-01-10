@@ -8,6 +8,10 @@ set :branch, 'master'
 set :puma_threads, [4, 16]
 set :puma_workers, 0
 
+set :puma_monit_conf_dir, -> { "/etc/monit.d/#{puma_monit_service_name}" }
+set :puma_monit_use_sudo, true
+set :puma_monit_bin, '/bin/monit'
+
 set :linked_files, %w(config/config.yml)
 set :linked_dirs, %w(log tmp)
 
